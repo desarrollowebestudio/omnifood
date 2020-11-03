@@ -22,6 +22,18 @@ h1 {
   line-height: 1em;
 }
 
+/* 
+=========
+VARIABLES
+=========
+*/
+html {
+
+  /* Dimensiones */
+  --areaActiva: 1180px;
+
+}
+
 /*
 =================
 ESTILOS GENERALES
@@ -36,4 +48,14 @@ body {
 
 h1 {
   font-weight: 300;
+}
+
+/*
+==================
+ESTILOS ESTRUCTURA
+==================
+*/
+.fila {
+  margin: 0px auto;
+  max-width: var(--areaActiva);
 }
