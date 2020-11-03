@@ -37,6 +37,10 @@ VARIABLES
 
 html {
 
+  /* Colores Principales */
+  --colorPrimario: hsl(30, 80%, 50%);
+  --colorPrimarioOscuro: hsl(30, 80%, 42%);
+
   /* Colores Base */
   --colorTexto: hsl(0, 0%, 30%);
 
@@ -47,6 +51,8 @@ html {
   /* Dimensiones */
   --areaActiva: 1180px;
 
+  /* Otros */
+  --transicionColores: background-color 300ms linear, color 300ms linear;
 }
 
 /*
@@ -57,11 +63,16 @@ ESTILOS GENERALES
 
 body {
   background-color: white;
+  text-rendering: optimizeLegibility;
 }
 
 h1, h2, a {
   font-family: var(--fuenteGeneral);
   font-weight: var(--pesoGeneral);
+}
+
+h1, h2 {
+  margin-bottom: 1rem;
 }
 
 /*
@@ -101,6 +112,49 @@ SECCIÓN HERO
 div#contenidoHero {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); 
+  transform: translateY(-50%); 
+}
+
+div#contenidoHero h1 {
+  font-size: 2.5rem;
+}
+
+div#contenidoHero h2 {
+  font-size: 1.5rem;
+}
+
+div#contenidoHero h1, div#contenidoHero h2 {
+  word-spacing: 0.25rem;
+  text-transform: uppercase;
+}
+
+div#contenidoHero a[class*='boton'] {
+  margin-right: 1rem;
+  display: inline-block;
+  border-radius: 10rem;
+  padding: 0.75em 2em;
+  font-size: 1rem;
+  transition: var(--transicionColores);
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+div#contenidoHero a.botonPrincipal {
+  background-color: var(--colorPrimario);
+  color: white;
+}
+
+div#contenidoHero a.botonPrincipal:hover {
+  background-color: var(--colorPrimarioOscuro);
+}
+
+div#contenidoHero a.botonSecundario{
+  border-color: var(--colorPrimario);
+  color: var(--colorPrimario);
+}
+
+div#contenidoHero a.botonSecundario:hover {
+  background-color: var(--colorPrimarioOscuro);
+  border-color: var(--colorPrimarioOscuro);
+  color: white;
 }
