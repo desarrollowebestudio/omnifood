@@ -22,9 +22,6 @@ FILAS: CLEAR FLOATS
 .fila:after {
 	clear:both;
 }
-.fila {
-	padding: 0.625rem 0%;
-}
 
 /* 
 =========================
@@ -35,16 +32,16 @@ COLUMNAS: FLOAT, MÁRGENES
 	display: block;
 	float: left;
 	margin-left: 1.6%;
-	margin-right: 0%;
+	margin-right: 0px;
 }
 
 .columna:first-child { 
-	margin-left: 0%; 
+	margin-left: 0px; 
 }
 
 @media (max-width: 480px) {
 	.columna { 
-		margin: 0%;
+		margin: 0px;
 	}
 }
 
