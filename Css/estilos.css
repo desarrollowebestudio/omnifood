@@ -4,7 +4,6 @@ IMPORTACIONES
 =============
 */
 
-@import url('/Css/Librerias/grid.css');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300');
 
 /* 
@@ -29,6 +28,10 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style-type: none;
+}
+
 /* 
 =========
 VARIABLES
@@ -50,6 +53,7 @@ html {
 
   /* Dimensiones */
   --areaActiva: 1180px;
+  --tamañoLogoHeader: 90px;
 
   /* Otros */
   --transicionColores: background-color 300ms linear, color 300ms linear;
@@ -71,8 +75,18 @@ h1, h2, a {
   font-weight: var(--pesoGeneral);
 }
 
-h1, h2 {
-  margin-bottom: 1rem;
+h1 {
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  margin-bottom: 0.625rem;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: inherit;
 }
 
 /*
@@ -81,9 +95,10 @@ ESTILOS ESTRUCTURA
 ==================
 */
 
-.fila {
+.areaActiva {
   margin: 0px auto;
   max-width: var(--areaActiva);
+  flex-grow: 1;
 }
 
 /*
@@ -93,8 +108,9 @@ BARRA NAVEGACIÓN
 */
 
 header {
-  position: relative;
-  height: 100vh;
+  display: flex;
+  min-height: 100vh;
+  padding: 1.25rem 0px;
   background-image: url('/Recursos/Imagenes/Fondos/fondoHero.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -102,6 +118,44 @@ header {
   background-color: hsl(0, 0%, 30%);
   background-blend-mode: multiply;
   color: white;
+  flex-direction: column;
+  position: relative;
+}
+
+div#barraHeader {
+  flex-grow: 0;
+}
+
+div#barraHeader div.areaActiva {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div#logoHeader {
+  height: var(--tamañoLogoHeader);
+}
+
+ul#enlacesHeader {
+  display: flex;
+}
+
+ul#enlacesHeader li {
+  margin-left: 2rem;
+  padding: 0.5rem 0px;
+  border-bottom: 2px solid transparent;
+  transition: var(--transicionColores);
+}
+
+ul#enlacesHeader a {
+  font-size: 1rem;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+}
+
+ul#enlacesHeader li:hover {
+  border-bottom-color: var(--colorPrimario);
 }
 
 /* 
@@ -109,10 +163,15 @@ header {
 SECCIÓN HERO
 ============
 */
+
+div#hero {
+  flex-grow: 1;
+}
+
 div#contenidoHero {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%); 
+  transform: translateY(-50%);
 }
 
 div#contenidoHero h1 {
