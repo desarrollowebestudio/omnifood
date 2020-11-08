@@ -1,13 +1,5 @@
 /* 
 =============
-IMPORTACIONES
-=============
-*/
-
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300');
-
-/* 
-=============
 RESET ESTILOS
 =============
 */
@@ -70,7 +62,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-h1, h2, a {
+h1, h2, h3, p, a {
   font-family: var(--fuenteGeneral);
   font-weight: var(--pesoGeneral);
 }
@@ -87,6 +79,11 @@ img {
   display: block;
   max-width: 100%;
   height: inherit;
+}
+
+i.fas, i.far, i.fab {
+  text-align: center;
+  width: 1.25em; 
 }
 
 /*
@@ -111,12 +108,13 @@ header {
   display: flex;
   min-height: 100vh;
   padding: 1.25rem 0px;
-  background-image: url('/Recursos/Imagenes/Fondos/fondoHero.jpg');
+  background-image: url('/recursos/imagenes/fondos/fondoHero.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-color: hsl(0, 0%, 30%);
   background-blend-mode: multiply;
+  background-attachment: fixed;
   color: white;
   flex-direction: column;
   position: relative;
@@ -217,3 +215,20 @@ div#contenidoHero a.botonSecundario:hover {
   border-color: var(--colorPrimarioOscuro);
   color: white;
 }
+
+/*
+=================
+SECCIÓN: FEATURES
+=================
+*/
+div#galeriaFeatures {
+  display: flex;
+  justify-content: space-between;
+}
+
+div#galeriaFeatures article {
+  flex-basis: calc((100% / 4) - 2%);
+}
+
+
+
