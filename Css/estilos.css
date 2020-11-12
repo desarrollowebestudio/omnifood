@@ -10,13 +10,16 @@ RESET ESTILOS
   box-sizing: border-box;
 }
 
-h1, h2 {
-  font-size: 1rem;
+
+h1, h2, h3, p, a {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
   line-height: 1em;
+  color: inherit;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
 }
 
@@ -59,20 +62,10 @@ ESTILOS GENERALES
 
 body {
   background-color: white;
-  text-rendering: optimizeLegibility;
-}
-
-h1, h2, h3, p, a {
   font-family: var(--fuenteGeneral);
+  font-size: 1rem;
   font-weight: var(--pesoGeneral);
-}
-
-h1 {
-  margin-bottom: 1.5rem;
-}
-
-h2 {
-  margin-bottom: 0.625rem;
+  color: var(--colorTexto);
 }
 
 img {
@@ -84,6 +77,10 @@ img {
 i.fas, i.far, i.fab {
   text-align: center;
   width: 1.25em; 
+}
+
+p {
+  line-height: 1.4em;
 }
 
 /*
@@ -181,6 +178,7 @@ div#contenidoHero h2 {
 }
 
 div#contenidoHero h1, div#contenidoHero h2 {
+  margin-bottom: 1.5rem;
   word-spacing: 0.25rem;
   text-transform: uppercase;
 }
@@ -221,14 +219,63 @@ div#contenidoHero a.botonSecundario:hover {
 SECCIÓN: FEATURES
 =================
 */
+
+#seccionFeatures {
+  padding: 5rem 0px;
+}
+
+div#descripcionFeatures {
+  margin-bottom: 3.75rem;
+}
+
+div#descripcionFeatures h2 {
+  margin-bottom: 1.875rem;
+  font-size: 1.875rem;
+  letter-spacing: 1px;
+  word-spacing: 0.125rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+div#descripcionFeatures h2:after {
+  content: '';
+  margin: 0px auto;
+  margin-top: 1.25rem; 
+  display: block;
+  width: 10%;
+  height: 2px;
+  background-color: var(--colorPrimario);
+}
+
+div#descripcionFeatures p {
+  margin: 0px auto;
+  width: 70ch;
+  font-size: 1.25rem;
+}
+
 div#galeriaFeatures {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 2.5rem;
 }
 
-div#galeriaFeatures article {
-  flex-basis: calc((100% / 4) - 2%);
+div#galeriaFeatures i {
+  display: block;
+  margin: 0px auto;
+  margin-bottom: 0.875rem;
+  font-size: 2rem;
+  color: var(--colorPrimario);
 }
 
+div#galeriaFeatures h3 {
+  margin-bottom: 1.25rem;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  word-spacing: 0.125rem;
+  text-align: center;
+}
 
-
+div#galeriaFeatures p {
+  font-size: 1.125rem;
+  text-align: justify;
+}
