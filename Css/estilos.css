@@ -52,6 +52,7 @@ html {
 
   /* Otros */
   --transicionColores: background-color 300ms linear, color 300ms linear;
+  --transicionTransformacion: transform 400ms linear, opacity 400ms linear;
 }
 
 /*
@@ -271,14 +272,20 @@ div#galeriaFeatures h3 {
   margin-bottom: 1.25rem;
   font-size: 1.25rem;
   text-transform: uppercase;
+  letter-spacing: 0.75px;
   word-spacing: 0.125rem;
   text-align: center;
 }
 
 div#galeriaFeatures p {
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   text-align: justify;
 }
+
+div#galeriaFeatures strong {
+  font-weight: normal;
+}
+
 
 /* 
 ==================
@@ -290,6 +297,20 @@ SECCIÓN: PRODUCTOS
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, auto);
+  overflow-x: hidden;
 }
 
+#seccionProductos figure.imagenProducto {
+  background-color: black;
+  overflow: hidden;
+}
 
+#seccionProductos figure.imagenProducto img {
+  opacity: 65%;
+  transition: var(--transicionTransformacion);
+}
+
+#seccionProductos figure.imagenProducto:hover img {
+  opacity: 100%;
+  transform: scale(115%);
+}
