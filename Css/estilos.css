@@ -279,3 +279,17 @@ div#galeriaFeatures p {
   font-size: 1.125rem;
   text-align: justify;
 }
+
+/* 
+==================
+SECCIÓN: PRODUCTOS
+==================
+*/
+
+#seccionProductos ul.galeriaProductos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+}
+
+
