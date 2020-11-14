@@ -84,6 +84,24 @@ p {
   line-height: 1.4em;
 }
 
+h2.tituloSeccion {
+  font-size: 1.875rem;
+  letter-spacing: 1px;
+  word-spacing: 0.125rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+h2.tituloSeccion:after {
+  content: '';
+  margin: 0px auto;
+  margin-top: 1.25rem; 
+  display: block;
+  width: 10%;
+  height: 2px;
+  background-color: var(--colorPrimario);
+}
+
 /*
 ==================
 ESTILOS ESTRUCTURA
@@ -94,6 +112,10 @@ ESTILOS ESTRUCTURA
   margin: 0px auto;
   max-width: var(--areaActiva);
   flex-grow: 1;
+}
+
+section.seccionInformacion {
+  padding: 5rem 0px;
 }
 
 /*
@@ -221,37 +243,18 @@ SECCIÓN: FEATURES
 =================
 */
 
-#seccionFeatures {
-  padding: 5rem 0px;
-}
-
 div#descripcionFeatures {
   margin-bottom: 3.75rem;
-}
-
-div#descripcionFeatures h2 {
-  margin-bottom: 1.875rem;
-  font-size: 1.875rem;
-  letter-spacing: 1px;
-  word-spacing: 0.125rem;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-div#descripcionFeatures h2:after {
-  content: '';
-  margin: 0px auto;
-  margin-top: 1.25rem; 
-  display: block;
-  width: 10%;
-  height: 2px;
-  background-color: var(--colorPrimario);
 }
 
 div#descripcionFeatures p {
   margin: 0px auto;
   width: 70ch;
   font-size: 1.25rem;
+}
+
+div#descripcionFeatures h2.tituloSeccion {
+  margin-bottom: 1.875rem;
 }
 
 div#galeriaFeatures {
@@ -312,5 +315,21 @@ SECCIÓN: PRODUCTOS
 
 #seccionProductos figure.imagenProducto:hover img {
   opacity: 100%;
-  transform: scale(115%);
+  transform: scale(1.15);
 }
+
+/* 
+==============
+SECCIÓN: PASOS
+==============
+*/
+
+#seccionPasos h2.tituloSeccion {
+  margin-bottom: 3rem;
+}
+
+div#contenedorInfoPasos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
