@@ -322,7 +322,7 @@ SECCIÓN: PASOS
 */
 
 #seccionPasos h2.tituloSeccion {
-  margin-bottom: 3rem;
+  margin-bottom: 3.125rem;
 }
 
 div#contenedorInfoPasos {
@@ -375,4 +375,24 @@ div#contenedorInfoPasos div.enlacesAplicaciones a {
 div#contenedorInfoPasos div.enlacesAplicaciones img {
   display: inline-block;
   vertical-align: bottom;
+}
+
+/* 
+=================
+SECCIÓN: CIUDADES
+=================
+*/
+
+#seccionCiudades {
+  background-color: white;
+}
+
+#seccionCiudades h2.tituloSeccion {
+  margin-bottom: 3.125rem;
+}
+
+div#galeriaCiudades {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 1.25rem;
 }
