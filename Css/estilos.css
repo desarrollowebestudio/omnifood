@@ -80,7 +80,7 @@ img {
   height: inherit;
 }
 
-p {
+p, blockquote {
   line-height: 1.4em;
 }
 
@@ -493,7 +493,7 @@ SECCIÓN: TESTIMONIOS
   color: white;
 }
 
-#seccionTestimonios h2.tituloSeccion {
+ #seccionTestimonios h2.tituloSeccion {
   margin-bottom: 3.125rem;
   color: white;
 }
@@ -502,4 +502,42 @@ SECCIÓN: TESTIMONIOS
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 2rem;
+}
+
+#seccionTestimonios article.contenedorTestimonio blockquote:before {
+  content: open-quote;
+  position: absolute;
+  top: -0.5em;
+  left: -0.05em;
+  font-size: 5rem;
+  line-height: 1em;
+}
+
+#seccionTestimonios article.contenedorTestimonio blockquote:after {
+  content: close-quote;
+  position: absolute;
+  visibility: hidden;
+}
+
+#seccionTestimonios article.contenedorTestimonio blockquote {
+  margin-top: 2.5rem;
+  position: relative;
+  font-size: 1.125rem;
+  font-style: italic;
+}
+
+#seccionTestimonios div.autorTestimonio {
+  display: flex;
+  margin-top: 1.75rem;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+#seccionTestimonios div.autorTestimonio figure {
+  margin-right: 1rem;
+}
+
+#seccionTestimonios div.autorTestimonio img {
+  height: 60px;
+  border-radius: 50%;
 }
