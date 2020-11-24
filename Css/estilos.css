@@ -475,3 +475,31 @@ SECCIÓN: CIUDADES
   cursor: pointer;
   border-bottom-color: var(--colorPrimario);
 }
+
+/* 
+====================
+SECCIÓN: TESTIMONIOS
+====================
+*/
+
+#seccionTestimonios {
+  background-color: hsla(0, 0%, 20%);
+  background-image: url('/recursos/imagenes/fondos/fondoTestimonios.jpg');
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+#seccionTestimonios h2.tituloSeccion {
+  margin-bottom: 3.125rem;
+  color: white;
+}
+
+#seccionTestimonios div.galeriaTestimonios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 2rem;
+}
