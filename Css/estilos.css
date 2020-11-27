@@ -115,6 +115,15 @@ h3.tituloArticulo {
   text-align: center;
 }
 
+a[class*='boton'] {
+  display: inline-block;
+  border-radius: 10rem;
+  padding: 0.75em 2em;
+  font-size: 1rem;
+  transition: var(--transicionColores);
+  cursor: pointer;
+}
+
 /*
 ==================
 ESTILOS ESTRUCTURA
@@ -221,13 +230,7 @@ div#contenidoHero h1, div#contenidoHero h2 {
 
 div#contenidoHero a[class*='boton'] {
   margin-right: 1rem;
-  display: inline-block;
-  border-radius: 10rem;
-  padding: 0.75em 2em;
-  font-size: 1rem;
-  transition: var(--transicionColores);
   border: 1px solid transparent;
-  cursor: pointer;
 }
 
 div#contenidoHero a.botonPrincipal {
@@ -411,27 +414,27 @@ SECCIÓN: CIUDADES
   grid-column-gap: 1rem;
 }
 
-#seccionCiudades article.cartaCiudad {
+#seccionCiudades article.tarjetaCiudad {
   border-radius: 10px;
   box-shadow: 0px 1px 3px rgba(0%, 0%, 0%, 20%);
   transition: box-shadow 300ms;
 }
 
-#seccionCiudades article.cartaCiudad:hover {
+#seccionCiudades article.tarjetaCiudad:hover {
   box-shadow: 0px 1px 3px hsla(var(--valoresPrimario), 50%);
 }
 
-#seccionCiudades figure.encabezadoCarta {
+#seccionCiudades figure.encabezadoTarjeta {
   height: var(--alturaImagenCiudades);
 }
 
-#seccionCiudades figure.encabezadoCarta img {
+#seccionCiudades figure.encabezadoTarjeta img {
   width: 100%;
   object-fit: cover;
   border-radius: 10px 10px 0px 0px;
 }
 
-#seccionCiudades div.cuerpoCarta {
+#seccionCiudades div.cuerpoTarjeta {
   padding: 1.75rem 1rem;
 }
 
@@ -467,7 +470,7 @@ SECCIÓN: CIUDADES
   transition: var(--transicionBorde);
 }
 
-#seccionCiudades article.cartaCiudad:hover a {
+#seccionCiudades article.tarjetaCiudad:hover a {
   color: var(--colorPrimario);
 }
 
@@ -501,7 +504,7 @@ SECCIÓN: TESTIMONIOS
 #seccionTestimonios div.galeriaTestimonios {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 2rem;
+  grid-column-gap: 2.5rem;
 }
 
 #seccionTestimonios article.contenedorTestimonio blockquote:before {
@@ -540,4 +543,35 @@ SECCIÓN: TESTIMONIOS
 #seccionTestimonios div.autorTestimonio img {
   height: 60px;
   border-radius: 50%;
+}
+
+/* 
+================
+SECCIÓN: PRECIOS
+================
+*/
+
+#seccionPrecios div.galeriaPlanes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 2.5rem;
+}
+
+#seccionPrecios div.pieTarjeta a[class*='boton'] {
+  border: 1px solid var(--colorPrimario);
+}
+
+#seccionPrecios div.pieTarjeta a[class*=boton] {
+  background-color: transparent;
+  color: var(--colorPrimario)
+}
+
+#seccionPrecios div.pieTarjeta a[class*=boton]:hover,
+article#tarjetaPlanPremium div.pieTarjeta a[class*=boton] {
+  background-color: var(--colorPrimario);
+  color: white;
+}
+
+article#tarjetaPlanPremium div.pieTarjeta a[class*=boton]:hover {
+  background-color: var(--colorPrimarioOscuro);
 }
