@@ -55,6 +55,7 @@ html {
   --alturaImagenCiudades: 200px;
 
   /* Otros */
+  --sombraTarjetas: 0px 2px 2px hsl(0, 0%, 90%);
   --transicionColores: background-color 300ms linear, color 300ms linear;
   --transicionTransformacion: transform 400ms linear, opacity 400ms linear;
   --transicionBorde: border 300ms;
@@ -102,7 +103,7 @@ h2.tituloSeccion:after {
   margin: 0px auto;
   margin-top: 1.25rem; 
   display: block;
-  width: 10%;
+  width: 8ch;
   height: 2px;
   background-color: var(--colorPrimario);
 }
@@ -120,8 +121,29 @@ a[class*='boton'] {
   border-radius: 10rem;
   padding: 0.75em 2em;
   font-size: 1rem;
+  border: 1px solid transparent;
   transition: var(--transicionColores);
   cursor: pointer;
+}
+
+a.botonPrincipal {
+  background-color: var(--colorPrimario);
+  color: white;
+}
+
+a.botonPrincipal:hover {
+  background-color: var(--colorPrimarioOscuro);
+}
+
+a.botonSecundario{
+  border-color: var(--colorPrimario);
+  color: var(--colorPrimario);
+}
+
+a.botonSecundario:hover {
+  background-color: var(--colorPrimarioOscuro);
+  border-color: var(--colorPrimarioOscuro);
+  color: white;
 }
 
 /*
@@ -228,29 +250,8 @@ div#contenidoHero h1, div#contenidoHero h2 {
   text-transform: uppercase;
 }
 
-div#contenidoHero a[class*='boton'] {
-  margin-right: 1rem;
-  border: 1px solid transparent;
-}
-
 div#contenidoHero a.botonPrincipal {
-  background-color: var(--colorPrimario);
-  color: white;
-}
-
-div#contenidoHero a.botonPrincipal:hover {
-  background-color: var(--colorPrimarioOscuro);
-}
-
-div#contenidoHero a.botonSecundario{
-  border-color: var(--colorPrimario);
-  color: var(--colorPrimario);
-}
-
-div#contenidoHero a.botonSecundario:hover {
-  background-color: var(--colorPrimarioOscuro);
-  border-color: var(--colorPrimarioOscuro);
-  color: white;
+  margin-right: 1rem;
 }
 
 /*
@@ -416,12 +417,12 @@ SECCIÓN: CIUDADES
 
 #seccionCiudades article.tarjetaCiudad {
   border-radius: 10px;
-  box-shadow: 0px 1px 3px rgba(0%, 0%, 0%, 20%);
+  box-shadow: var(--sombraTarjetas);
   transition: box-shadow 300ms;
 }
 
 #seccionCiudades article.tarjetaCiudad:hover {
-  box-shadow: 0px 1px 3px hsla(var(--valoresPrimario), 50%);
+  box-shadow: 0px 2px 2px hsla(var(--valoresPrimario), 30%);
 }
 
 #seccionCiudades figure.encabezadoTarjeta {
@@ -551,27 +552,91 @@ SECCIÓN: PRECIOS
 ================
 */
 
+#seccionPrecios h2.tituloSeccion {
+  margin-bottom: 2.5rem;
+}
+
 #seccionPrecios div.galeriaPlanes {
   display: grid;
+  padding: 0px 3.125rem;
   grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 2.5rem;
+  grid-column-gap: 3.125rem;
 }
 
-#seccionPrecios div.pieTarjeta a[class*='boton'] {
-  border: 1px solid var(--colorPrimario);
+#seccionPrecios article.tarjetaPlan {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 2px 2px hsl(0, 0%, 90%);
 }
 
-#seccionPrecios div.pieTarjeta a[class*=boton] {
-  background-color: transparent;
-  color: var(--colorPrimario)
+#seccionPrecios article.tarjetaPlan > div {
+  padding: 0.9375em;
 }
 
-#seccionPrecios div.pieTarjeta a[class*=boton]:hover,
-article#tarjetaPlanPremium div.pieTarjeta a[class*=boton] {
+#seccionPrecios article.tarjetaPlan > div:not(:last-child) {
+  border-bottom: 1px solid hsl(0, 0%, 90%);
+}
+
+#seccionPrecios div.encabezadoTarjeta h3.nombrePlan {
+  margin-bottom: 0.9375rem;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+#seccionPrecios div.encabezadoTarjeta h3.nombrePlan:after {
+  content: '';
+  margin: 0px auto;
+  margin-top: 0.375rem; 
+  display: block;
+  width: 5ch;
+  height: 1px;
   background-color: var(--colorPrimario);
-  color: white;
 }
 
-article#tarjetaPlanPremium div.pieTarjeta a[class*=boton]:hover {
-  background-color: var(--colorPrimarioOscuro);
+#seccionPrecios div.encabezadoTarjeta div.precioPlan {
+  font-size: 3.125rem;
+  font-weight: 100;
+  line-height: 1em;
+  color: var(--colorPrimario);
+}
+
+#seccionPrecios div.encabezadoTarjeta span.valorPrecio {
+  font-size: 1em;
+}
+
+#seccionPrecios div.encabezadoTarjeta span.unidadPrecio {
+  font-size: 1.125rem;
+}
+
+#seccionPrecios div.encabezadoTarjeta p.resumenPlan {
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
+#seccionPrecios div.cuerpoTarjeta {
+  background-color: hsl(0, 0%, 99%);
+}
+
+#seccionPrecios div.cuerpoTarjeta li.caracteristicaPlan {
+  padding: 4px 0px;
+}
+
+#seccionPrecios div.cuerpoTarjeta li.caracteristicaPlan i {
+  width: 1.875rem;
+  font-size: 1.5rem;
+  color: var(--colorPrimario);
+  transform: translateY(2px);
+}
+
+#seccionPrecios div.cuerpoTarjeta li.caracteristicaPlan span {
+  font-size: 1rem;
+}
+
+#seccionPrecios div.pieTarjeta {
+  text-align: center;
+}
+
+#seccionPrecios div.pieTarjeta a {
+  margin: 0.3125rem 0px;
 }
