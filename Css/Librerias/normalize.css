@@ -6,7 +6,7 @@ body {
 }
 
 /* Normalización Tipografía */
-h1, button,  input, select, textarea {
+h1, button, input, select, textarea {
   font-family: inherit;
   font-size: 1rem;
   line-height: 1em;

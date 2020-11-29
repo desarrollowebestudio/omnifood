@@ -11,12 +11,12 @@ RESET ESTILOS
 }
 
 
-h1, h2, h3, p, a {
+h1, h2, h3, p, a, input, select, textarea, button {
+  color: inherit;
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
   line-height: 1em;
-  color: inherit;
 }
 
 a {
@@ -49,7 +49,7 @@ html {
   --pesoGeneral: 300;
 
   /* Dimensiones */
-  --areaActiva: 1180px;
+  --areaActiva: 1200px;
   --tamañoLogoHeader: 90px;
   --alturaImagenProductos: 260px;
   --alturaImagenCiudades: 200px;
@@ -91,6 +91,7 @@ i[class|=ion] {
 }
 
 h2.tituloSeccion {
+  margin-bottom: 3.125rem;
   font-size: 1.875rem;
   letter-spacing: 1px;
   word-spacing: 0.125rem;
@@ -116,7 +117,7 @@ h3.tituloArticulo {
   text-align: center;
 }
 
-a[class*='boton'] {
+a[class*='boton'], button[class*='boton'] {
   display: inline-block;
   border-radius: 10rem;
   padding: 0.75em 2em;
@@ -126,16 +127,16 @@ a[class*='boton'] {
   cursor: pointer;
 }
 
-a.botonPrincipal {
+a.botonPrincipal, button.botonPrincipal {
   background-color: var(--colorPrimario);
   color: white;
 }
 
-a.botonPrincipal:hover {
+a.botonPrincipal:hover, button.botonPrincipal:hover {
   background-color: var(--colorPrimarioOscuro);
 }
 
-a.botonSecundario{
+a.botonSecundario {
   border-color: var(--colorPrimario);
   color: var(--colorPrimario);
 }
@@ -221,9 +222,9 @@ ul#enlacesHeader li:hover {
 }
 
 /* 
-============
-SECCIÓN HERO
-============
+=============
+SECCIÓN: HERO
+=============
 */
 
 div#hero {
@@ -339,10 +340,6 @@ SECCIÓN: PASOS
 ==============
 */
 
-#seccionPasos h2.tituloSeccion {
-  margin-bottom: 3.125rem;
-}
-
 div#contenedorInfoPasos {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -403,10 +400,6 @@ SECCIÓN: CIUDADES
 
 #seccionCiudades {
   background-color: white;
-}
-
-#seccionCiudades h2.tituloSeccion {
-  margin-bottom: 3.125rem;
 }
 
 #seccionCiudades div.galeriaCiudades {
@@ -498,11 +491,16 @@ SECCIÓN: TESTIMONIOS
 }
 
  #seccionTestimonios h2.tituloSeccion {
-  margin-bottom: 3.125rem;
   color: white;
 }
 
 #seccionTestimonios div.galeriaTestimonios {
+  --colorNegro: hsla(0, 0%, 0%, 40%);
+  --coloresGradiente: transparent 0%, var(--colorNegro) 30%, var(--colorNegro) 70%, transparent 100%;
+  background-image: linear-gradient(to bottom, var(--coloresGradiente));
+}
+
+#seccionTestimonios div.galeriaTestimonios div.areaActiva{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 2.5rem;
@@ -551,10 +549,6 @@ SECCIÓN: TESTIMONIOS
 SECCIÓN: PRECIOS
 ================
 */
-
-#seccionPrecios h2.tituloSeccion {
-  margin-bottom: 2.5rem;
-}
 
 #seccionPrecios div.galeriaPlanes {
   display: grid;
@@ -639,4 +633,44 @@ SECCIÓN: PRECIOS
 
 #seccionPrecios div.pieTarjeta a {
   margin: 0.3125rem 0px;
+}
+
+/* 
+============================
+SECCIÓN: FORMULARIO CONTACTO
+============================
+*/
+
+#seccionContacto {
+  background-color: white;
+}
+
+#seccionContacto div.filaCampo {
+  display: grid;
+  margin-bottom: 0.9375rem;
+  grid-template-areas: 'Etiqueta Campo';
+  grid-template-columns: 1fr 2fr;
+}
+
+#seccionContacto div.columnaEtiqueta {
+  grid-area: Etiqueta;
+}
+
+#seccionContacto div.columnaCampo {
+  grid-area: Campo;
+}
+
+#seccionContacto textarea {
+  resize: vertical;
+}
+
+/* 
+=============
+PIE DE PÁGINA
+=============
+*/
+
+footer {
+  background-color: hsl(0, 0%, 10%);
+  min-height: 2.5rem; /* Temporal */
 }
