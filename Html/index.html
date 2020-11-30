@@ -712,9 +712,10 @@
               </div>
 
               <div class="columnaCampo">
-                <select id="campoDescubrimiento" class="campoFormulario" name="descubrimiento">
-                  <option value="amigos" selected>Friends</option>
-                  <option value="motorBusqueda">Search Engine</option>
+                <select id="campoDescubrimiento" class="campoFormulario" name="descubrimiento" required>
+                  <option selected disabled>Pick a method</option>
+                  <option value="amigos">Friends</option>
+                  <option value="motorBusqueda">Search engine</option>
                   <option value="publicidad">Advertisement</option>
                   <option value="otro">Other</option>
                 </select>
@@ -726,17 +727,18 @@
           <div class="filaCampo">
 
               <div class="columnaEtiqueta">
-                <label for="campoNoticias">Subscribe to newsletter?</label>
+                <span>Subscribe to newsletter?</span>
               </div>
 
               <div class="columnaCampo">
                 <input type="checkbox" id="campoNoticias" class="campoFormulario" name="noticias" checked>
+                <label for="campoNoticias" class="etiquetaCheckbox">Yes, please</label>
               </div>
 
           </div>
 
           <!-- Campo 5: Mensaje -->
-          <div class="filaCampo">
+          <div class="filaCampo campoVariasLineas">
 
               <div class="columnaEtiqueta">
                 <label for="campoMensaje">Drop us a line</label>
