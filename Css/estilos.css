@@ -169,7 +169,7 @@ BARRA NAVEGACIÓN
 ================
 */
 
-header {
+#header {
   display: flex;
   min-height: 100vh;
   padding: 1.25rem 0px;
@@ -340,26 +340,26 @@ SECCIÓN: PASOS
 ==============
 */
 
-div#contenedorInfoPasos {
+div#contenedorInformacionPasos {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 4vw;
   align-items: center;
 }
 
-div#contenedorInfoPasos figure.columnaImagen img {
+div#contenedorInformacionPasos figure.columnaImagen img {
   width: 40%;
   margin-left: auto;
 }
 
-div#contenedorInfoPasos ul.listaPasos li {
+div#contenedorInformacionPasos ul.listaPasos li {
   display: flex;
   margin-bottom: 1.875rem;
   justify-content: flex-start;
   align-items: center;
 }
 
-div#contenedorInfoPasos div.numeroPaso {
+div#contenedorInformacionPasos div.numeroPaso {
   display: inline-block;
   margin-right: 1rem;
   width: 2.5rem;
@@ -372,22 +372,22 @@ div#contenedorInfoPasos div.numeroPaso {
   color: var(--colorPrimario);
 }
 
-div#contenedorInfoPasos p.textoPaso {
+div#contenedorInformacionPasos p.textoPaso {
   max-width: 40ch;
   font-size: 1.125rem;
   text-align: justify;
 }
 
-div#contenedorInfoPasos div.enlacesAplicaciones {
+div#contenedorInformacionPasos div.enlacesAplicaciones {
   margin-top: 3.125rem;
 }
 
-div#contenedorInfoPasos div.enlacesAplicaciones a {
+div#contenedorInformacionPasos div.enlacesAplicaciones a {
   margin-right: 0.625rem;
   height: 2.5rem;
 }
 
-div#contenedorInfoPasos div.enlacesAplicaciones img {
+div#contenedorInformacionPasos div.enlacesAplicaciones img {
   display: inline-block;
   vertical-align: bottom;
 }
@@ -693,10 +693,6 @@ SECCIÓN: FORMULARIO CONTACTO
   border-color: hsla(var(--valoresPrimario), 50%);
 }
 
-#seccionContacto select {
-  text-indent: -0.2ch;
-}
-
 #seccionContacto input[type='checkbox'] {
   margin-right: 0.3125rem;
 }
@@ -736,7 +732,26 @@ PIE DE PÁGINA
 =============
 */
 
-footer {
+#footer {
   background-color: hsl(0, 0%, 10%);
-  min-height: 2.5rem; /* Temporal */
+}
+
+#footer nav.filaEnlaces {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+}
+
+#footer ul.navegacionFooter {
+  display: flex;
+  justify-self: start;
+}
+
+#footer ul.enlacesRedesSociales {
+  display: flex;
+  justify-self: end;
+}
+
+#footer div.filaInformacionFooter p {
+  text-align: center;
 }
