@@ -360,15 +360,18 @@ div#contenedorInformacionPasos ul.listaPasos li {
 }
 
 div#contenedorInformacionPasos div.numeroPaso {
-  display: inline-block;
+  display: inline-flex;
   margin-right: 1rem;
-  width: 2.5rem;
+  min-width: 2.5rem;
   height: 2.5rem;
   border: 1px solid var(--colorPrimario);
   border-radius: 50%;
-  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+div#contenedorInformacionPasos div.numeroPaso span {
   font-size: 1.125rem;
-  text-align: center;
   color: var(--colorPrimario);
 }
 
@@ -733,13 +736,16 @@ PIE DE PÁGINA
 */
 
 #footer {
-  background-color: hsl(0, 0%, 10%);
+  background-color: hsl(0, 0%, 20%);
+  padding: 1.5rem;
+  color: hsl(0, 0%, 60%);
 }
 
 #footer nav.filaEnlaces {
   display: grid;
+  margin-bottom: 1rem;
   grid-template-columns: 1fr 1fr;
-  justify-content: space-between;
+  align-items: center;
 }
 
 #footer ul.navegacionFooter {
@@ -747,11 +753,44 @@ PIE DE PÁGINA
   justify-self: start;
 }
 
+#footer ul.navegacionFooter li {
+  margin-right: 1.875rem;
+  font-size: 1rem;
+  transition: var(--transicionColores);
+}
+
+#footer ul.navegacionFooter li:hover {
+  color: white;
+}
+
 #footer ul.enlacesRedesSociales {
   display: flex;
   justify-self: end;
 }
 
+#footer ul.enlacesRedesSociales li {
+  margin-left: 1.25rem;
+  font-size: 1.375rem;
+  transition: var(--transicionColores);
+}
+
+#footer li.iconoTwitter:hover {
+  color: #00ACED;
+}
+
+#footer li.iconoFacebook:hover {
+  color: #3B5998;
+}
+
+#footer li.iconoGooglePlus:hover {
+  color: #DD4B39;
+}
+
+#footer li.iconoInstagram:hover {
+  color: #C13584;
+}
+
 #footer div.filaInformacionFooter p {
+  font-size: 0.875rem;
   text-align: center;
 }
