@@ -49,7 +49,7 @@ html {
   --pesoGeneral: 300;
 
   /* Dimensiones */
-  --areaActiva: 1200px;
+  --areaActiva: 1180px;
   --tamañoLogoHeader: 90px;
   --alturaImagenProductos: 260px;
   --alturaImagenCiudades: 200px;
@@ -147,6 +147,29 @@ a.botonSecundario:hover {
   color: white;
 }
 
+/* 
+====================
+RANGOS MEDIA QUERIES
+====================
+
+BREAK POINTS:
+A. Mínimo: 0px
+B. 576px
+C. 768px
+D. 992px
+E. 1200px
+F. 1400px
+Z. Máximo
+
+RANGOS:
+AB. Celulares Verticales: <= 575 px
+BC. Celulares Horizontales: 576 px - 767 px
+CD. Tablets Verticales: 768 px - 991 px
+DE. Tablets Horizontales: 992 px - 1199 px
+EF. Portátiles: 1200 px - 1439 px
+FZ. Monitores: >= 1440 px
+*/
+
 /*
 ==================
 ESTILOS ESTRUCTURA
@@ -155,12 +178,52 @@ ESTILOS ESTRUCTURA
 
 .areaActiva {
   margin: 0px auto;
-  max-width: var(--areaActiva);
-  flex-grow: 1;
 }
 
-section.seccionInformacion {
-  padding: 5rem 0px;
+/* MEDIA QUERIES: ESTRUCTURA */
+
+/* 1. Rango AB (Celulares Verticales): <= 575px */
+@media (max-width: 575px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+/* 1. Rango BZ (Celulares Horizontales, Tablets, Computadoras): >= 576px */
+@media (min-width: 576px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+/* 2. Rango AD (Celulares, Tablets Verticales): <= 991px */
+@media (max-width: 991px) {
+  section.seccionInformacion {
+    padding: 5rem 0px;
+  }
+}
+
+/* 2. Rango DZ (Tablets Horizontales, Computadoras): >= 992px */
+@media (min-width: 992px) {
+  section.seccionInformacion {
+    padding: 3.75rem 0px;
+  }
+}
+
+/* 3. Rango AE (Celulares, Tablets): <= 1199px */
+@media (max-width: 1199px) {
+  .areaActiva {
+    width: 100%;
+    padding: 0px 2.5%;
+  }
+}
+
+/* 3. Rango EZ (Computadoras): >= 1200px */
+@media (min-width: 1200px) {
+  .areaActiva {
+    max-width: var(--areaActiva);
+    padding: 0px;
+  }
 }
 
 /*
@@ -267,7 +330,6 @@ div#descripcionFeatures {
 
 div#descripcionFeatures p {
   margin: 0px auto;
-  width: 70ch;
   font-size: 1.25rem;
 }
 
@@ -302,6 +364,22 @@ div#galeriaFeatures strong {
   font-weight: normal;
 }
 
+/* MEDIA QUERIES: SECCIÓN FEATURES */
+
+/* 1. Rango AD (Celulares, Tablets Verticales): <= 991px */
+@media (max-width: 991px) {
+  div#descripcionFeatures p {
+    width: 100%;
+    padding: 0px 10%;
+  }
+}
+
+/* 1. Rango DZ (Tablets Horizontales, Computadoras): >= 992px */
+@media (min-width: 992px) {
+  div#descripcionFeatures p {
+    max-width: 70ch;
+  }
+}
 
 /* 
 ==================
@@ -360,19 +438,16 @@ div#contenedorInformacionPasos ul.listaPasos li {
 }
 
 div#contenedorInformacionPasos div.numeroPaso {
-  display: inline-flex;
+  display: inline-block;
   margin-right: 1rem;
   min-width: 2.5rem;
   height: 2.5rem;
   border: 1px solid var(--colorPrimario);
   border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-}
-
-div#contenedorInformacionPasos div.numeroPaso span {
   font-size: 1.125rem;
+  line-height: calc(2.5rem - 2 * 1px);
   color: var(--colorPrimario);
+  text-align: center;
 }
 
 div#contenedorInformacionPasos p.textoPaso {
@@ -707,8 +782,9 @@ SECCIÓN: FORMULARIO CONTACTO
 
 #seccionContacto textarea {
   resize: vertical;
-  max-height: 10rem;
+  max-height: 15rem;
   min-height: 2.25rem;
+  overflow: auto;
 }
 
 #seccionContacto select:invalid {
