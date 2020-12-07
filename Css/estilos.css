@@ -11,12 +11,12 @@ RESET ESTILOS
 }
 
 
-h1, h2, h3, p, a, input, select, textarea, button {
+h1, h2, h3, p, a, input, select, textarea, button, li {
   color: inherit;
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
-  line-height: 1em;
+  line-height: normal;
 }
 
 a {
@@ -48,11 +48,21 @@ html {
   --fuenteGeneral: 'Lato', sans-serif;
   --pesoGeneral: 300;
 
-  /* Dimensiones */
-  --areaActiva: 1180px;
-  --tamañoLogoHeader: 90px;
-  --alturaImagenProductos: 260px;
+  /* Dimensiones Generales */
+  --areaActiva: 1200px;
+  --bordesTarjetas: 10px;
+
+  /* Dimensiones Ancho */
+  --anchoMockupAplicacion: 190px;
+  --anchoMaximoTarjetasCelular: 320px;
+
+  /* Dimensiones Altura */
+  --alturaLogoGrandeHeader: 90px;
+  --alturaLogoPequeñoHeader: 60px;
+  --alturaImagenPequeñaProductos: 180px;
+  --alturaImagenGrandeProductos: 260px;
   --alturaImagenCiudades: 200px;
+  --alturaAvatarTestimonio: 60px;
 
   /* Otros */
   --sombraTarjetas: 0px 2px 2px hsl(0, 0%, 90%);
@@ -154,7 +164,7 @@ RANGOS MEDIA QUERIES
 
 BREAK POINTS:
 A. Mínimo: 0px
-B. 576px
+B. 520px
 C. 768px
 D. 992px
 E. 1200px
@@ -162,8 +172,8 @@ F. 1400px
 Z. Máximo
 
 RANGOS:
-AB. Celulares Verticales: <= 575 px
-BC. Celulares Horizontales: 576 px - 767 px
+AB. Celulares Pequeños: <= 519 px
+BC. Celulares Grandes: 520 px - 767 px
 CD. Tablets Verticales: 768 px - 991 px
 DE. Tablets Horizontales: 992 px - 1199 px
 EF. Portátiles: 1200 px - 1439 px
@@ -182,47 +192,58 @@ ESTILOS ESTRUCTURA
 
 /* MEDIA QUERIES: ESTRUCTURA */
 
-/* 1. Rango AB (Celulares Verticales): <= 575px */
-@media (max-width: 575px) {
+/* Recorrido 1 */
+/* Rango AC: <= 767px */
+@media (max-width: 767px) {
   html {
     font-size: 87.5%;
   }
 }
 
-/* 1. Rango BZ (Celulares Horizontales, Tablets, Computadoras): >= 576px */
-@media (min-width: 576px) {
+/* Rango CZ: >= 768px */
+@media (min-width: 768px) {
   html {
     font-size: 100%;
   }
 }
 
-/* 2. Rango AD (Celulares, Tablets Verticales): <= 991px */
+/* Recorrido 2 */
+/* Rango AD: <= 991px */
 @media (max-width: 991px) {
+  section.seccionInformacion {
+    padding: 3.125rem 0px;
+  }
+}
+
+/* Rango DZ: >= 992px */
+@media (min-width: 992px) {
   section.seccionInformacion {
     padding: 5rem 0px;
   }
 }
 
-/* 2. Rango DZ (Tablets Horizontales, Computadoras): >= 992px */
-@media (min-width: 992px) {
-  section.seccionInformacion {
-    padding: 3.75rem 0px;
+/* Recorrido 3 */
+/* Rango AD: <= 991px */
+@media (max-width: 991px) {
+  .areaActiva {
+    width: 100%;
+    padding: 0px 5%;
   }
 }
 
-/* 3. Rango AE (Celulares, Tablets): <= 1199px */
-@media (max-width: 1199px) {
+/* Rango DE: 992px - 1199px */
+@media (min-width: 992px) and (max-width: 1199px) {
   .areaActiva {
     width: 100%;
     padding: 0px 2.5%;
   }
 }
 
-/* 3. Rango EZ (Computadoras): >= 1200px */
+/* Rango EZ: >= 1200px */
 @media (min-width: 1200px) {
   .areaActiva {
     max-width: var(--areaActiva);
-    padding: 0px;
+    padding: 0px 2.5%;
   }
 }
 
@@ -248,30 +269,25 @@ BARRA NAVEGACIÓN
   position: relative;
 }
 
-div#barraHeader {
-  flex-grow: 0;
-}
-
 div#barraHeader div.areaActiva {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
   align-items: center;
-}
-
-div#logoHeader {
-  height: var(--tamañoLogoHeader);
 }
 
 ul#enlacesHeader {
   display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 ul#enlacesHeader li {
-  margin-left: 2rem;
   padding: 0.5rem 0px;
   border-bottom: 2px solid transparent;
   transition: var(--transicionBorde);
+}
+
+ul#enlacesHeader li:not(:first-child) {
+  margin-left: 2rem;
 }
 
 ul#enlacesHeader a {
@@ -284,6 +300,50 @@ ul#enlacesHeader li:hover {
   border-bottom-color: var(--colorPrimario);
 }
 
+/* MEDIA QUERIES: BARRA DE NAVEGACIÓN */
+
+/* Rango AB: <= 519px */
+@media (max-width: 519px) {
+  div#barraHeader div.areaActiva {
+    justify-content: space-between;
+  }
+  div#barraHeader nav {
+    display: none;
+  }
+  div#logoHeader {
+    height: var(--alturaLogoGrandeHeader);
+  }
+}
+
+/* Rango BC: 520px - 767px */
+@media (min-width: 520px) and (max-width: 767px) {
+  div#barraHeader div.areaActiva {
+    justify-content: center;
+  }
+  div#logoHeader {
+    margin-bottom: 1.25rem;
+    height: var(--alturaLogoPequeñoHeader);
+  }
+}
+
+/* Rango AC: <= 767px */
+@media (max-width: 767px) {
+  div#barraHeader div.areaActiva {
+    flex-direction: column;
+  }
+}
+
+/* Rango CZ: >= 768px */
+@media (min-width: 768px) {
+  div#barraHeader div.areaActiva {
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+  div#logoHeader {
+    height: var(--alturaLogoGrandeHeader);
+  }
+}
+
 /* 
 =============
 SECCIÓN: HERO
@@ -291,10 +351,12 @@ SECCIÓN: HERO
 */
 
 div#hero {
+  height: 0px;
   flex-grow: 1;
 }
 
 div#contenidoHero {
+  width: 100%;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -305,17 +367,70 @@ div#contenidoHero h1 {
 }
 
 div#contenidoHero h2 {
+  margin-bottom: 1rem;
   font-size: 1.5rem;
 }
 
 div#contenidoHero h1, div#contenidoHero h2 {
-  margin-bottom: 1.5rem;
   word-spacing: 0.25rem;
   text-transform: uppercase;
 }
 
-div#contenidoHero a.botonPrincipal {
-  margin-right: 1rem;
+div#contenidoHero div.contenedorBotones {
+  display: flex;
+}
+
+/* MEDIA QUERIES: HERO */
+
+/* Recorrido 1 */
+/* Rango AB: <= 519px */
+@media (max-width: 519px) {
+  div#contenidoHero h1 {
+    margin-bottom: 3.125rem;
+  }
+  div#contenidoHero div.contenedorBotones {
+    flex-direction: column;
+    align-items: center;
+  }
+  div#contenidoHero a[class*='boton'] {
+    padding: 1em 2.5em;
+  }
+  div#contenidoHero a.botonPrincipal {
+    margin-bottom: 1.25rem;
+  }
+}
+
+/* Rango BZ: >= 520px */
+@media (min-width: 520px) {
+  div#contenidoHero h1, div#contenidoHero h2 {
+    margin-bottom: 2rem;
+  }
+  div#contenidoHero div.contenedorBotones {
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  div#contenidoHero a.botonPrincipal {
+    margin-right: 1rem;
+  }
+}
+
+/* Recorrido 2 */
+/* Rango AC <= 768px */
+@media (max-width: 767px) {
+  div#contenidoHero {
+    text-align: center;
+  }
+}
+
+/* Rango CZ: >= 768px */
+@media (min-width: 768px) {
+  div#contenidoHero div.contenedorBotones {
+    flex-flow: row wrap;
+    justify-content: start;
+  }
+  div#contenidoHero {
+    text-align: left;
+  }
 }
 
 /*
@@ -339,8 +454,8 @@ div#descripcionFeatures h2.tituloSeccion {
 
 div#galeriaFeatures {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 2.5rem;
+  column-gap: 3.125rem;
+  row-gap: 2.5rem;
 }
 
 div#galeriaFeatures i {
@@ -366,7 +481,8 @@ div#galeriaFeatures strong {
 
 /* MEDIA QUERIES: SECCIÓN FEATURES */
 
-/* 1. Rango AD (Celulares, Tablets Verticales): <= 991px */
+/* Recorrido 1 */
+/* Rango AD: <= 991px */
 @media (max-width: 991px) {
   div#descripcionFeatures p {
     width: 100%;
@@ -374,10 +490,32 @@ div#galeriaFeatures strong {
   }
 }
 
-/* 1. Rango DZ (Tablets Horizontales, Computadoras): >= 992px */
+/* Rango DZ: >= 992px */
 @media (min-width: 992px) {
   div#descripcionFeatures p {
     max-width: 70ch;
+  }
+}
+
+/* Recorrido 2 */
+/* Rango AB: <= 519px */
+@media (max-width: 519px) {
+  div#galeriaFeatures {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Rango BD: 520px - 991px */
+@media (min-width: 520px) and (max-width: 991px) {
+  div#galeriaFeatures {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Rango DZ: >= 992px */
+@media (min-width: 992px) {
+  div#galeriaFeatures {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -389,13 +527,10 @@ SECCIÓN: PRODUCTOS
 
 #seccionProductos ul.galeriaProductos {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, auto);
   overflow-x: hidden;
 }
 
 #seccionProductos figure.imagenProducto {
-  height: var(--alturaImagenProductos);
   background-color: black;
   overflow: hidden;
 }
@@ -412,6 +547,40 @@ SECCIÓN: PRODUCTOS
   transform: scale(1.15);
 }
 
+/* MEDIA QUERIES: SECCIÓN PRODUCTOS */
+
+/* Rango AB: <= 519px */
+@media (max-width: 519px) {
+  #seccionProductos ul.galeriaProductos {
+    grid-template-columns: 1fr;
+  }
+  #seccionProductos figure.imagenProducto {
+    height: var(--alturaImagenPequeñaProductos);
+  }
+}
+
+/* Rango BD: 520px - 991px */
+@media (min-width: 520px) and (max-width: 991px) {
+  #seccionProductos ul.galeriaProductos {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, auto);
+  }
+  #seccionProductos figure.imagenProducto {
+    height: var(--alturaImagenGrandeProductos);
+  }
+}
+
+/* Rango DZ: >= 992px */
+@media (min-width: 992px) {
+  #seccionProductos ul.galeriaProductos {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+  }
+  #seccionProductos figure.imagenProducto {
+    height: var(--alturaImagenGrandeProductos);
+  }
+}
+
 /* 
 ==============
 SECCIÓN: PASOS
@@ -419,15 +588,9 @@ SECCIÓN: PASOS
 */
 
 div#contenedorInformacionPasos {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 4vw;
+  display: flex;
   align-items: center;
-}
-
-div#contenedorInformacionPasos figure.columnaImagen img {
-  width: 40%;
-  margin-left: auto;
+  justify-content: center;
 }
 
 div#contenedorInformacionPasos ul.listaPasos li {
@@ -457,18 +620,80 @@ div#contenedorInformacionPasos p.textoPaso {
 }
 
 div#contenedorInformacionPasos div.enlacesAplicaciones {
+  display: flex;
+  flex-flow: row wrap;
   margin-top: 3.125rem;
 }
 
 div#contenedorInformacionPasos div.enlacesAplicaciones a {
   margin-right: 0.625rem;
+  display: inline-block;
   height: 2.5rem;
+}
+
+div#contenedorInformacionPasos div.enlacesAplicaciones a:not(:last-child) {
+  margin-bottom: 0.75rem;
 }
 
 div#contenedorInformacionPasos div.enlacesAplicaciones img {
   display: inline-block;
   vertical-align: bottom;
 }
+
+/* MEDIA QUERIES: SECCIÓN PASOS */
+
+/* Recorrido 1 */
+/* Rango AB: <= 519px */
+@media (max-width: 519px) {
+  div#contenedorInformacionPasos {
+    flex-direction: column;
+  }
+  div#contenedorInformacionPasos figure.columnaImagen {
+    margin-right: 0px;
+    margin-bottom: 3.125rem;
+  }
+}
+
+/* Rango BZ: >= 520px */
+@media (min-width: 520px) {
+  div#contenedorInformacionPasos {
+    flex-direction: row;
+  }
+  div#contenedorInformacionPasos figure.columnaImagen {
+    margin-right: 2rem;
+    margin-bottom: 0px;
+  }
+}
+
+/* Recorrido 2 */
+/* Rango AE: <= 1199px */
+@media (max-width: 1199px) {
+  div#contenedorInformacionPasos figure.columnaImagen {
+    max-width: var(--anchoMockupAplicacion);
+  }
+  div#contenedorInformacionPasos div.enlacesAplicaciones {
+    justify-content: center;
+  }
+}
+
+/* Rango DZ: >= 1200px */
+@media (min-width: 1200px) {
+  div#contenedorInformacionPasos {
+    justify-content: space-between;
+  }
+  div#contenedorInformacionPasos > [class*='columna'] {
+    flex-basis: 50%;
+  }
+  div#contenedorInformacionPasos figure.columnaImagen img {
+    margin-left: auto;
+    margin-right: 2.5rem;
+    width: 40%;
+  }
+  div#contenedorInformacionPasos div.enlacesAplicaciones {
+    justify-content: start;
+  }
+}
+
 
 /* 
 =================
@@ -482,12 +707,10 @@ SECCIÓN: CIUDADES
 
 #seccionCiudades div.galeriaCiudades {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 1rem;
 }
 
 #seccionCiudades article.tarjetaCiudad {
-  border-radius: 10px;
+  border-radius: var(--bordesTarjetas);
   box-shadow: var(--sombraTarjetas);
   transition: box-shadow 300ms;
 }
@@ -503,7 +726,7 @@ SECCIÓN: CIUDADES
 #seccionCiudades figure.encabezadoTarjeta img {
   width: 100%;
   object-fit: cover;
-  border-radius: 10px 10px 0px 0px;
+  border-radius: var(--bordesTarjetas) var(--bordesTarjetas) 0px 0px;
 }
 
 #seccionCiudades div.cuerpoTarjeta {
@@ -551,6 +774,38 @@ SECCIÓN: CIUDADES
   border-bottom-color: var(--colorPrimario);
 }
 
+/* MEDIA QUERIES: SECCIÓN CIUDADES */
+
+/* Rango BD: <= 519px */
+@media (max-width: 519px) {
+  #seccionCiudades div.galeriaCiudades {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    row-gap: 2.5rem;
+  }
+  #seccionPrecios article.tarjetaPlan {
+    width: 100%;
+    max-width: var(--anchoMaximoTarjetasCelular);
+  }
+}
+
+/* Rango BD: 520px - 991px */
+@media (min-width: 520px) and (max-width: 991px) {
+  #seccionCiudades div.galeriaCiudades {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2.5rem;
+    row-gap: 2.5rem;
+  }
+}
+
+/* Rango DZ: >= 992px */
+@media (min-width: 992px) {
+  #seccionCiudades div.galeriaCiudades {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 1rem;
+  }
+}
+
 /* 
 ====================
 SECCIÓN: TESTIMONIOS
@@ -578,10 +833,13 @@ SECCIÓN: TESTIMONIOS
   background-image: linear-gradient(to bottom, var(--coloresGradiente));
 }
 
-#seccionTestimonios div.galeriaTestimonios div.areaActiva{
+#seccionTestimonios div.galeriaTestimonios div.areaActiva {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 2.5rem;
+  column-gap: 2.5rem;
+}
+
+#seccionTestimonios article.contenedorTestimonio blockquote {
+  max-width: 50ch;
 }
 
 #seccionTestimonios article.contenedorTestimonio blockquote:before {
@@ -608,7 +866,7 @@ SECCIÓN: TESTIMONIOS
 
 #seccionTestimonios div.autorTestimonio {
   display: flex;
-  margin-top: 1.75rem;
+  margin-top: 1.25rem;
   flex-flow: row wrap;
   align-items: center;
 }
@@ -618,8 +876,49 @@ SECCIÓN: TESTIMONIOS
 }
 
 #seccionTestimonios div.autorTestimonio img {
-  height: 60px;
+  height: var(--alturaAvatarTestimonio);
   border-radius: 50%;
+}
+
+/* MEDIA QUERIES: SECCIÓN TESTIMONIOS */
+
+/* Rango AD: <= 991px */
+@media (max-width: 991px) {
+  #seccionTestimonios div.galeriaTestimonios div.areaActiva {
+    justify-items: center;
+  }
+  #seccionTestimonios article.contenedorTestimonio blockquote {
+    text-align: center;
+  }
+  #seccionTestimonios div.autorTestimonio {
+    justify-content: center;
+  }
+}
+
+/* Rango AC: <= 767px */
+@media (max-width: 767px) {
+  #seccionTestimonios div.galeriaTestimonios div.areaActiva {
+    grid-template-columns: 1fr;
+    row-gap: 2.5rem;
+  }
+}
+
+/* Rango CD: 767 - 991px */
+@media (min-width: 768px) and (max-width: 991px) {
+  #seccionTestimonios div.galeriaTestimonios div.areaActiva {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 3.5rem;
+  }
+  #seccionTestimonios article.contenedorTestimonio:last-child {
+    grid-column: 1 / span 2;
+  }
+}
+
+/* Rango DZ: >= 992px */
+@media (min-width: 992px) {
+  #seccionTestimonios div.galeriaTestimonios div.areaActiva {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* 
@@ -630,14 +929,12 @@ SECCIÓN: PRECIOS
 
 #seccionPrecios div.galeriaPlanes {
   display: grid;
-  padding: 0px 3.125rem;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 3.125rem;
+  row-gap: 2rem;
 }
 
 #seccionPrecios article.tarjetaPlan {
   background-color: white;
-  border-radius: 10px;
+  border-radius: var(--bordesTarjetas);
   box-shadow: 0px 2px 2px hsl(0, 0%, 90%);
 }
 
@@ -686,12 +983,12 @@ SECCIÓN: PRECIOS
   font-style: italic;
 }
 
-#seccionPrecios div.cuerpoTarjeta {
-  background-color: hsl(0, 0%, 99%);
+#seccionPrecios div.encabezadoTarjeta p.resumenVacio {
+  display: none;
 }
 
-#seccionPrecios div.cuerpoTarjeta li.caracteristicaPlan {
-  padding: 4px 0px;
+#seccionPrecios div.cuerpoTarjeta {
+  background-color: hsl(0, 0%, 99%);
 }
 
 #seccionPrecios div.cuerpoTarjeta li.caracteristicaPlan i {
@@ -713,6 +1010,64 @@ SECCIÓN: PRECIOS
   margin: 0.3125rem 0px;
 }
 
+/* MEDIA QUERIES: SECCIÓN PRECIOS */
+
+/* Rango AB: <= 519px */
+@media (max-width: 519px) {
+  #seccionPrecios div.galeriaPlanes {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  #seccionPrecios article.tarjetaPlan {
+    width: 100%;
+    max-width: var(--anchoMaximoTarjetasCelular);
+  }
+}
+
+/* Rango BC: 519px - 767px */
+@media (min-width: 519px) and (max-width: 767px) {
+  #seccionPrecios div.galeriaPlanes {
+    padding: 0px;
+    column-gap: 2rem;
+  }
+}
+
+/* Rango CD: 768px - 991px */
+@media (min-width: 768px) and (max-width: 991px) {
+  #seccionPrecios div.galeriaPlanes {
+    padding: 0px 3.125rem;
+    column-gap: 3.125rem;
+  }
+}
+
+/* Rango BD: 520px - 991px */
+@media (min-width: 520px) and (max-width: 991px) {
+  #seccionPrecios div.galeriaPlanes {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  #seccionPrecios article.tarjetaPlan {
+    grid-column-end: span 2;
+  }
+  #seccionPrecios article.tarjetaPlan:last-child {
+    grid-column-start: 2;
+  }
+}
+
+/* Rango DZ: >= 992px */
+@media (min-width: 992px) {
+  #seccionPrecios div.galeriaPlanes {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0px 3.125rem;
+    column-gap: 3.125rem;
+  }
+  #seccionPrecios div.encabezadoTarjeta p.resumenVacio {
+    display: block;
+  }
+  #seccionPrecios div.cuerpoTarjeta li.caracteristicaPlan {
+    padding: 4px 0px;
+  }
+}
+
 /* 
 ============================
 SECCIÓN: FORMULARIO CONTACTO
@@ -725,18 +1080,12 @@ SECCIÓN: FORMULARIO CONTACTO
 
 #seccionContacto form {
   margin: 0px auto;
-  width: 60%;
-}
-
-#seccionContacto div.filaCampo:not(:last-child) {
-  margin-bottom: 0.9375rem;
 }
 
 #seccionContacto div.filaCampo {
   display: grid;
-  grid-template-areas: 'Etiqueta Campo';
-  grid-template-columns: 1fr 2fr;
   align-items: baseline;
+  column-gap: 1.25rem;
 }
 
 #seccionContacto div.campoVariasLineas {
@@ -803,6 +1152,58 @@ SECCIÓN: FORMULARIO CONTACTO
 
 #seccionContacto button[type='submit'] {
   margin-top: 0.375rem;
+  padding-left: 3.75rem;
+  padding-right: 3.75rem; 
+}
+
+/* MEDIA QUERIES: SECCIÓN FORMULARIO CONTACTO */
+
+/* Recorrido 1 */
+/* Rango AB: <= 519px */
+@media (max-width: 519px) {
+  #seccionContacto div.filaCampo {
+    grid-template-areas: 'Etiqueta' 'Campo';
+    grid-template-columns: 1fr;
+  }
+  #seccionContacto div.columnaEtiqueta {
+    margin-bottom: 0.625rem;
+  }
+  #seccionContacto div.filaCampo:not(:last-child) {
+    margin-bottom: 1.75rem;
+  }
+  #seccionContacto div.columnaBotonEnvio {
+    text-align: center;
+  }
+}
+
+/* Rango BZ: >= 520px */
+@media (min-width: 520px) {
+  #seccionContacto div.filaCampo {
+    grid-template-areas: 'Etiqueta Campo';
+    grid-template-columns: 1fr 2fr;
+  }
+  #seccionContacto div.filaCampo:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+  #seccionContacto div.columnaBotonEnvio {
+    text-align: left;
+  }
+}
+
+/* Recorrido 2 */
+/* Rango AC: <= 767px */
+@media (max-width: 767px) {
+  #seccionContacto form {
+    width: 100%;
+    padding: 0px 1.875rem;
+  }
+}
+
+/* Rango CZ: >= 768px */
+@media (min-width: 768px) {
+  #seccionContacto form {
+    width: 65%;
+  }
 }
 
 /* 
@@ -818,19 +1219,14 @@ PIE DE PÁGINA
 }
 
 #footer nav.filaEnlaces {
-  display: grid;
-  margin-bottom: 1rem;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
+  display: flex;
 }
 
 #footer ul.navegacionFooter {
   display: flex;
-  justify-self: start;
 }
 
 #footer ul.navegacionFooter li {
-  margin-right: 1.875rem;
   font-size: 1rem;
   transition: var(--transicionColores);
 }
@@ -841,12 +1237,10 @@ PIE DE PÁGINA
 
 #footer ul.enlacesRedesSociales {
   display: flex;
-  justify-self: end;
+  justify-content: center;
 }
 
 #footer ul.enlacesRedesSociales li {
-  margin-left: 1.25rem;
-  font-size: 1.375rem;
   transition: var(--transicionColores);
 }
 
@@ -869,4 +1263,70 @@ PIE DE PÁGINA
 #footer div.filaInformacionFooter p {
   font-size: 0.875rem;
   text-align: center;
+}
+
+#footer div.filaInformacionFooter span {
+  display: inline-block;
+}
+
+/* MEDIA QUERIES: FOOTER */
+
+/* Recorrido 1 */
+/* Rango AB: <= 519px */
+@media (max-width: 519px) {
+  #footer ul.navegacionFooter {
+    flex-direction: column;
+  }
+  #footer ul.navegacionFooter li:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+  #footer ul.enlacesRedesSociales li {
+    font-size: 1.625rem;
+  }
+}
+
+/* Rango BZ: >= 520px */
+@media (min-width: 520px) {
+  #footer ul.navegacionFooter {
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  #footer ul.navegacionFooter li:not(:last-child) {
+    margin-right: 1.875rem;
+  }
+  #footer ul.enlacesRedesSociales li {
+    font-size: 1.375rem;
+  }
+}
+
+/* Recorrido 2 */
+/* Rango AC: <= 767px */
+@media (max-width: 767px) {
+  #footer nav.filaEnlaces {
+    margin-bottom: 2rem;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #footer ul.enlacesRedesSociales {
+    order: -1;
+    margin-bottom: 1.25rem;
+  }
+  #footer ul.enlacesRedesSociales li:not(:first-child) {
+    margin-left: 1.875rem;
+  }
+}
+
+/* Rango CZ: >= 768px */
+@media (min-width: 768px) {
+  #footer nav.filaEnlaces {
+    margin-bottom: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  #footer ul.enlacesRedesSociales {
+    order: 0;
+  }
+  #footer ul.enlacesRedesSociales li:not(:first-child) {
+    margin-left: 1.25rem;
+  }
 }

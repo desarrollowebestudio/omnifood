@@ -39,16 +39,18 @@
 
     <!-- Hero -->
     <div id="hero">
-      <div class="areaActiva">
-        <div id="contenidoHero">
+      <div id="contenidoHero">
+        <div class="areaActiva">
 
           <!-- Headline, Tagline -->
           <h2>Goodbye, junk food</h2>
           <h1>Hello, super healthy meals</h1>
 
           <!-- Botones Call to Action -->
-          <a class="botonPrincipal" href="#">Try healthy meal</a>
-          <a class="botonSecundario" href="#">Show me more</a>
+          <div class="contenedorBotones">
+            <a class="botonPrincipal" href="#">Try healthy meal</a>
+            <a class="botonSecundario" href="#">Show me more</a>
+          </div>
 
         </div>
       </div>
@@ -238,9 +240,10 @@
               <a href="#">
                 <img 
                 src="/recursos/imagenes/otros/descargaAndroid.png" 
-                alt="Play Store Button"></a>
-            </div>
+                alt="Play Store Button">
+              </a>
 
+            </div>
           </div>
         </div>
       </div>
@@ -624,7 +627,7 @@
                 <span class="valorPrecio">$19 </span>
                 <span class="unidadPrecio">/ meal</span>
               </div>                
-              <p class="resumenPlan">&nbsp;</p>
+              <p class="resumenPlan resumenVacio">&nbsp;</p>
             </div>
 
             <!-- Cuerpo Tarjeta Plan: Características -->
@@ -682,7 +685,7 @@
           <div class="filaCampo">
 
               <div class="columnaEtiqueta">
-                <label for="campoNombre">Nombre</label>
+                <label for="campoNombre">Name</label>
               </div>
 
               <div class="columnaCampo">
@@ -752,7 +755,7 @@
 
           <!-- Botón Envío -->
           <div class="filaCampo">
-            <div class="columnaCampo">
+            <div class="columnaCampo columnaBotonEnvio">
               <button type="submit" class="botonPrincipal">Submit</button>
             </div>
           </div>
@@ -773,8 +776,8 @@
         <!-- Navegación Pie de Página -->
         <ul class="navegacionFooter">
           <li><a href="#">About Us</a></li>
-          <li><a href="#">Blog</a></li>
           <li><a href="#">Press</a></li>
+          <li><a href="#">Blog</a></li>
           <li><a href="#">iOS App</a></li>
           <li><a href="#">Android App</a></li>
         </ul>
@@ -802,7 +805,10 @@
       
       <!-- Fila 2: Información Autor, Copyright -->
       <div class="filaInformacionFooter">
-        <p>Copyright &copy; 2015 by Omnifood. All rights reserved.</p>
+        <p>
+          <span>Copyright &copy; 2015 by Omnifood.</span> 
+          <span>All rights reserved.</span>
+        </p>
       </div>
       
     </div>
