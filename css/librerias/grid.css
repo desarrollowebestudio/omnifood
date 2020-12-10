@@ -1,0 +1,226 @@
+/* 
+=========
+SECCIONES
+=========
+*/
+.seccion {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/* 
+===================
+FILAS: CLEAR FLOATS
+===================
+*/
+.fila:before,
+.fila:after {
+	content: '';
+	display: block;
+}
+.fila:after {
+	clear:both;
+}
+
+/* 
+=========================
+COLUMNAS: FLOAT, MÁRGENES
+=========================
+*/
+.columna {
+	display: block;
+	float: left;
+	margin-left: 1.6%;
+	margin-right: 0px;
+}
+
+.columna:first-child { 
+	margin-left: 0px; 
+}
+
+@media (max-width: 480px) {
+	.columna { 
+		margin: 0px;
+	}
+}
+
+/* 
+================
+GRID: 2 COLUMNAS
+================
+*/
+.rango-2de2 {
+	width: 100%;
+}
+
+.rango-1de2 {
+	width: 49.2%;
+}
+
+@media (max-width: 480px) {
+	.rango-2de2 {
+		width: 100%; 
+	}
+	.rango-1de2 {
+		width: 100%; 
+	}
+}
+
+/* 
+================
+GRID: 3 COLUMNAS
+================
+*/
+.rango-3de3 {
+	width: 100%; 
+}
+
+.rango-2de3 {
+	width: 66.13%; 
+}
+
+.rango-1de3 {
+	width: 32.26%; 
+}
+
+@media (max-width: 480px) {
+	.rango-3de3 {
+		width: 100%; 
+	}
+	.rango-2de3 {
+		width: 100%; 
+	}
+	.rango-1de3 {
+		width: 100%;
+	}
+}
+
+/* 
+================
+GRID: 4 COLUMNAS
+================
+*/
+.rango-4de4 {
+	width: 100%; 
+}
+
+.rango-3de4 {
+	width: 74.6%; 
+}
+
+.rango-2de4 {
+	width: 49.2%; 
+}
+
+.rango-1de4 {
+	width: 23.8%; 
+}
+
+@media (max-width: 480px) {
+	.rango-4de4 {
+		width: 100%; 
+	}
+	.rango-3de4 {
+		width: 100%; 
+	}
+	.rango-2de4 {
+		width: 100%; 
+	}
+	.rango-1de4 {
+		width: 100%; 
+	}
+}
+
+/* 
+================
+GRID: 5 COLUMNAS
+================
+*/
+.rango-5de5 {
+	width: 100%;
+}
+
+.rango-4de5 {
+	width: 79.68%; 
+}
+
+.rango-3de5 {
+	width: 59.36%; 
+}
+
+.rango-2de5 {
+	width: 39.04%;
+}
+
+.rango-1de5 {
+	width: 18.72%;
+}
+
+@media (max-width: 480px) {
+	.rango-5de5 {
+		width: 100%; 
+	}
+	.rango-4de5 {
+		width: 100%; 
+	}
+	.rango-3de5 {
+		width: 100%; 
+	}
+	.rango-2de5 {
+		width: 100%; 
+	}
+	.rango-1de5 {
+		width: 100%; 
+	}
+}
+
+/* 
+================
+GRID: 6 COLUMNAS
+================
+*/
+.rango-6de6 {
+	width: 100%;
+}
+
+.rango-5de6 {
+	width: 83.06%;
+}
+
+.rango-4de6 {
+	width: 66.13%;
+}
+
+.rango-3de6 {
+	width: 49.2%;
+}
+
+.rango-2de6 {
+	width: 32.26%;
+}
+
+.rango-1de6 {
+	width: 15.33%;
+}
+
+@media only screen and (max-width: 480px) {
+	.rango-6de6 {
+		width: 100%; 
+	}
+	.rango-5de6 {
+		width: 100%; 
+	}
+	.rango-4de6 {
+		width: 100%; 
+	}
+	.rango-3de6 {
+		width: 100%; 
+	}
+	.rango-2de6 {
+		width: 100%; 
+	}
+	.rango-1de6 {
+		width: 100%; 
+	}
+}
