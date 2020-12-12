@@ -5,7 +5,7 @@
   font-family: 'Ionicons';
   font-weight: normal;
   font-style: normal;
-  src: url('/recursos/fuentes/ionIcons/ionicons.woff') format('woff');
+  src: url('../recursos/fuentes/ionIcons/ionicons.woff') format('woff');
 }
 
 /* Propiedades comunes para todos los íconos */

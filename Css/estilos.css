@@ -35,6 +35,10 @@ VARIABLES
 
 html {
 
+  /* Rutas Archivos Externos */
+  --rutaImagenHero: url('../recursos/imagenes/fondos/fondoHero.jpg');
+  --rutaImagenTestimonios: url('../recursos/imagenes/fondos/fondoTestimonios.jpg');
+
   /* Colores Principales */
   --valoresPrimario: 30, 80%, 50%;
   --colorPrimario: hsl(var(--valoresPrimario));
@@ -257,7 +261,7 @@ BARRA NAVEGACIÓN
   display: flex;
   min-height: 100vh;
   padding: 1.25rem 0px;
-  background-image: url('/recursos/imagenes/fondos/fondoHero.jpg');
+  background-image: var(--rutaImagenHero);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -814,7 +818,7 @@ SECCIÓN: TESTIMONIOS
 
 #seccionTestimonios {
   background-color: hsla(0, 0%, 20%);
-  background-image: url('/recursos/imagenes/fondos/fondoTestimonios.jpg');
+  background-image: var(--rutaImagenTestimonios);
   background-blend-mode: multiply;
   background-size: cover;
   background-position: center;

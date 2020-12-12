@@ -1,4 +1,53 @@
-/* =================
+/* 
+=====================
+DEFINICIÓN DE FUENTES
+=====================
+*/
+
+/* Font Awesome Brands (FAB) (Regular) */
+@font-face {
+  font-family: 'Font Awesome';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('../recursos/fuentes/fontAwesome/fa-brands-400.woff'); 
+}
+
+.fab {
+  font-family: 'Font Awesome';
+  font-weight: 400; 
+}
+
+/* Font Awesome Regular (FAR) (Regular) */
+@font-face {
+  font-family: 'Font Awesome';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('../recursos/fuentes/fontAwesome/fa-regular-400.woff');
+}
+
+.far {
+  font-family: 'Font Awesome';
+  font-weight: 400; 
+}
+
+/* Font Awesome Solid (FAS) (Black) */
+@font-face {
+  font-family: 'Font Awesome';
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url('../recursos/fuentes/fontAwesome/fa-solid-900.woff');
+}
+
+.fas {
+  font-family: 'Font Awesome';
+  font-weight: 900; 
+}
+
+/* 
+====================
 NORMALIZACIÓN ÍCONOS
 ====================
 */
@@ -1476,51 +1525,3 @@ CÓDIGO CARACTERES
 .fa-youtube:before { content: '\f167'; }
 .fa-youtube-square:before { content: '\f431'; }
 .fa-zhihu:before { content: '\f63f'; }
-
-/* 
-=====================
-DEFINICIÓN DE FUENTES
-=====================
-*/
-
-/* Font Awesome Brands (FAB) (Regular) */
-@font-face {
-  font-family: 'Font Awesome';
-  font-style: normal;
-  font-weight: 400;
-  font-display: block;
-  src: url('/recursos/fuentes/fontAwesome/fa-brands-400.woff'); 
-}
-
-.fab {
-  font-family: 'Font Awesome';
-  font-weight: 400; 
-}
-
-/* Font Awesome Regular (FAR) (Regular) */
-@font-face {
-  font-family: 'Font Awesome';
-  font-style: normal;
-  font-weight: 400;
-  font-display: block;
-  src: url('/recursos/fuentes/fontAwesome/fa-regular-400.woff');
-}
-
-.far {
-  font-family: 'Font Awesome';
-  font-weight: 400; 
-}
-
-/* Font Awesome Solid (FAS) (Black) */
-@font-face {
-  font-family: 'Font Awesome';
-  font-style: normal;
-  font-weight: 900;
-  font-display: block;
-  src: url('/recursos/fuentes/fontAwesome/fa-solid-900.woff');
-}
-
-.fas {
-  font-family: 'Font Awesome';
-  font-weight: 900; 
-}
